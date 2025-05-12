@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Simple Browser App</title>
+    <script src="adblock.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <form id="searchForm" onsubmit="return search();">
+            <input type="text" name="q" placeholder="Search on Brave" id="searchInput" autocomplete="off">
+        </form>
+    </div>
+    <div id="suggestions" class="suggestions">
+        <button class="suggestion-button" onclick="setSearch('weather')">Weather</button>
+        <button class="suggestion-button" onclick="setSearch('https://omvijaysharma.github.io/QR-Buddy/')">QR code Maker & Reader</button>
+        <button class="suggestion-button" onclick="setSearch('https://www.youtube.com/')">YouTube</button>
+        <p>DOWNLOADERS</p>
+        <button class="suggestion-button" onclick="setSearch('https://instavideosave.net/')">INSTAGRAM</button>
+        <button class="suggestion-button" onclick="setSearch('https://yt5s.biz/enxj100/')">YOUTUBE</button>
+    </div>
+    <div id="offlineMessage">
+        <h2>Check your internet</h2>
+        <a href="index.html"><button>Try again</button></a>
+    </div>
+    <iframe id="iframeContainer" frameborder="0"></iframe>
+    
+    <details class="details">
+        <summary>info</summary>
+        <p>This app uses popular websites. These websites are very useful for downloading media.</p>
+    </details>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loader {
+            margin: auto;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50%; /* Rounded corners */
+            animation: spin 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <script>
+        // Redirect to the target URL after 2 seconds
+        setTimeout(function() {
+            var targetUrl = sessionStorage.getItem('targetUrl');
+            if (targetUrl) {
+                window.location.href = targetUrl; // Redirect to the target URL
+            } else {
+                window.location.href = "index.html"; // Redirect to main page if targetUrl not found
+            }
+        }, 2000);
+
+        // Handle back button functionality
+        window.onbeforeunload = function() {
+            // This will prevent navigating back from the loading page
+            sessionStorage.removeItem('targetUrl'); // Clear the target URL when leaving the page
+        };
+    </script>
+</body>
+</html>
